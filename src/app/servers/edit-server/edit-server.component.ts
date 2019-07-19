@@ -15,6 +15,7 @@ export class EditServerComponent implements OnInit {
   constructor(private serversService: ServersService) { }
 
   ngOnInit() {
+    console.log("EditServerComponent loaded...");
     this.server = this.serversService.getServer(1);
     this.serverName = this.server.name;
     this.serverStatus = this.server.status;
