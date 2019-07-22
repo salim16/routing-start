@@ -14,7 +14,8 @@
     1) /servers => absolute path, it will always append to the root domain, no matter how long the path is example =>> localhost:4200/servers
     2) servers or ./servers => relative path, it will append to the exiting parent path =>> localhost:4200/servers/salim/servers
     3) ../servers => step path, it goes one level back and then appends path =>> localhost:4200/servers/servers -->
-    <a routerLink="servers">Reload Page</a>
+    <!-- <a routerLink="servers">Reload Page</a> -->
+    <button class="btn btn-primary" (click)="onReload()">Reload Page</button>
     <app-edit-server></app-edit-server>
     <hr>
     <app-server></app-server>
