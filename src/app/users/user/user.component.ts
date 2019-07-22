@@ -16,6 +16,7 @@ export class UserComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     console.log("UserComponent loaded...");
+    //snapshot runs only one time, when the component is first created.
     this.user = {
       id: this.route.snapshot.params['id'],
       name: this.route.snapshot.params['name']
