@@ -24,7 +24,7 @@ export class UserComponent implements OnInit, OnDestroy {
     // since subscribe is an observable, it would run only when params change
     // one important thing is even if the component is destroyed and re-initialiized, the subscription is never destroyed
     // threfore we destroy it explicity in ngOnDestroy method 
-    this.route.params.subscribe(
+    this.paramsSubscription = this.route.params.subscribe(
       (params: Params) => {
         this.user.id = params['id'];
         this.user.name = params['name'];
