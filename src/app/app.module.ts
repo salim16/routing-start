@@ -15,11 +15,15 @@ import { ServersService } from './servers/servers.service';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent},
-  { path: 'users', component: UsersComponent},
-  { path: 'users/:id/:name', component: UserComponent},
-  { path: 'servers/salim', component: ServersComponent},
-  { path: 'servers/salim/:id', component: ServerComponent},
-  { path: 'servers/salim/:id/edit', component: EditServerComponent}
+  { path: 'users', component: UsersComponent, children: [
+    { path: ':id', component: UserComponent},
+    { path: ':id/:name', component: UserComponent}
+  ]},
+  { path: 'servers/salim', component: ServersComponent, children: [
+    { path: ':id', component: ServerComponent},
+    { path: ':id/edit', component: EditServerComponent}
+  ]}
+
 ]
 
 @NgModule({
