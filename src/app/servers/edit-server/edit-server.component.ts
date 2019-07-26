@@ -30,7 +30,13 @@ export class EditServerComponent implements OnInit {
       }
     );
     this.route.fragment.subscribe();
-    this.server = this.serversService.getServer(1);
+    this.route.params.subscribe(
+      (params: Params) => {
+        const id = +params['id'];
+        this.server = this.serversService.getServer(id);
+      } 
+    );
+    // this.server = this.serversService.getServer(1);
     this.serverName = this.server.name;
     this.serverStatus = this.server.status;
   }
