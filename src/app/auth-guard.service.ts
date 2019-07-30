@@ -1,8 +1,8 @@
-import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router, CanActivateChild } from "@angular/router";
+import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router, CanActivateChild, UrlTree } from "@angular/router";
 import { Observable } from "rxjs/Observable";
 import { AuthService } from "./auth.service";
 
-export class AuthGuard implements CanActivate {
+export class AuthGuard implements CanActivate, CanActivateChild {
 
     // multiple return types to handle both asynchronous and synchronous responses
     // canActivate(route: ActivatedRouteSnapshot,
@@ -26,6 +26,10 @@ export class AuthGuard implements CanActivate {
                     }
                 }
         );
+    }
+
+    canActivateChild(childRoute: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean | Observable<boolean> | Promise<boolean> {
+        return this.canActivate(childRoute, state);
     }
     
 }
