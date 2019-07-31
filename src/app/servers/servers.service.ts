@@ -18,7 +18,7 @@ export class ServersService {
   ];
 
   getServers() {
-    return this.servers.slice(); 
+    return this.servers.slice();
     // shallow copy, original objects remain the same, only the references copy,
     // hence it is okay to pass clone(), since we are only performing update on the three servers objects.
     // If you would also be adding a new server, than this would not work,
@@ -46,4 +46,5 @@ export class ServersService {
       server.status = serverInfo.status;
     }
   }
+
 }
