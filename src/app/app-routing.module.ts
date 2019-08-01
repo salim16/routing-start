@@ -56,6 +56,8 @@ const appRoutes: Routes = [
 
 @NgModule({
     imports: [
+        // it places a hash telling the web server that only care what is before the hash sign in the URL.
+        // RouterModule.forRoot(appRoutes, {useHash: true}) 
         RouterModule.forRoot(appRoutes)
     ],
     exports: [RouterModule] // export router module.
