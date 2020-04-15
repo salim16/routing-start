@@ -28,13 +28,17 @@ const appRoutes: Routes = [
     },
     { 
       path: 'servers/salim',
-      // canActivate: [AuthGuard],
+      //canActivate: [AuthGuard],
       canActivateChild: [AuthGuard], 
+      // canActivate activates the parent route and all child routes 
+      // whereas canActivateChild activates on child routes
       component: ServersComponent,
       children: [
         // { path: ':id', component: ServerComponent},
         // this server key is upto me..
         { path: ':id', component: ServerComponent, resolve: {server: ServerResolver}},
+        // canDeactivate route is activated when we leave a 
+        // particular route without saving the changes
         { path: ':id/edit', component: EditServerComponent, canDeactivate: [CanDeactivateGuard]}
       ]
     },
@@ -56,7 +60,8 @@ const appRoutes: Routes = [
 
 @NgModule({
     imports: [
-        // it places a hash telling the web server that only care what is before the hash sign in the URL.
+        // it places a hash telling the web server that only care what is 
+        // before the hash sign in the URL.
         // RouterModule.forRoot(appRoutes, {useHash: true}) 
         RouterModule.forRoot(appRoutes)
     ],

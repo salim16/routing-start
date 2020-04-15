@@ -3,14 +3,20 @@
     <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
       <ul class="nav nav-tabs">
         <li role="presentation" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
-          <a routerLink="">Home</a>
+          <a routerLink="/">Home</a>
+          <!-- Since routerLink is a directive and the router property which we are 
+            binding to looks like to be a string therefore when we bind a property to 
+            a string we can bind it as above -->
         </li>
+        <!-- Anything starting with a / (slash) is a absolute path ,
+            and without slash is relative path -->
         <li role="presentation" routerLinkActive="active">
           <a routerLink="/servers/salim">Servers</a>
         </li>
         <!-- Also can be used as property binding -->
         <!-- <li role="presentation"><a [routerLink]="'/users'">Users</a></li> -->
-        <!-- routerLinkActive works only with Bootstrap, with other css frameworks, there should be different options -->
+        <!-- routerLinkActive works only with Bootstrap, with other css frameworks, 
+            there should be different options -->
         <li role="presentation" routerLinkActive="active">
           <a [routerLink]="['users']">Users</a>
         </li>

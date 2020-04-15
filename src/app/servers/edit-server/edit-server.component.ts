@@ -11,6 +11,8 @@ import { Observable } from 'rxjs/Observable';
   styleUrls: ['./edit-server.component.css']
 })
 export class EditServerComponent implements OnInit, CanComponentDeactivate {
+  // Note that CanComponentDeactivate interface must be declared for the leaving router to work
+
   server: {id: number, name: string, status: string};
   serverName = '';
   serverStatus = '';
@@ -25,9 +27,10 @@ export class EditServerComponent implements OnInit, CanComponentDeactivate {
     console.log("EditServerComponent loaded...");
     // snapshot runs only one time.
     console.log(this.route.snapshot.queryParams);
-    console.log(this.route.snapshot.fragment);
-    // subscribe is an observable and can run everytime,
-    // whenever there is change in query param and fragment.
+    console.log("fragent is:" + this.route.snapshot.fragment);
+    // queryParams, fragment and params are all observables and we can subscribe to them,
+    // so that they can run asynchronoulsy whenever there is change in query param and fragment.
+    // without loading the component again
     this.route.queryParams.subscribe(
       (queryParams: Params) => {
         this.allowEdit = queryParams['allowEdit'] === '1' ? true : false;
@@ -55,7 +58,7 @@ export class EditServerComponent implements OnInit, CanComponentDeactivate {
 
   canDeactivate(): boolean | Observable<boolean> | Promise<boolean> {
     if(!this.allowEdit) {
-      return true;
+      return true; //if you are not allowed to edit sure you can leave the route
     }
 
     if((this.serverName !== this.server.name || this.serverStatus !== this.server.status)) {

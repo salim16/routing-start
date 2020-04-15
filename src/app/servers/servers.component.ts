@@ -21,7 +21,9 @@ export class ServersComponent implements OnInit {
 
   onReload() {
     // navigate method just doesn't know which route is currently loaded up.
-    // So it doesn't work relative to active route, to make it work relatively follow the second approach.
+    // So it doesn't work relative to active route, to make it work 
+    // relatively follow the second approach.
+    
     // this.router.navigate(['servers/salim']);
     this.router.navigate(['servers/salim'], {relativeTo: this.route});
   }

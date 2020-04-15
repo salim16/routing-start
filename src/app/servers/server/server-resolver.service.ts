@@ -8,12 +8,15 @@ interface Server {
     status: string
 }
 
-// this is important because we get the data from server, and array of servers would not be availble everytime if user hits refresh
+// this is important because we get the data from server, 
+// and array of servers would not be availble everytime if user hits refresh
+// this service is executed before the service loads
 export class ServerResolver implements Resolve<Server>{
 
     constructor(private serversService: ServersService) {}
 
-    resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Server | Observable<Server> | Promise<Server> {
+    resolve(route: ActivatedRouteSnapshot, 
+            state: RouterStateSnapshot): Server | Observable<Server> | Promise<Server> {
         // throw new Error("Method not implemented.");
         return this.serversService.getServer(+route.params['id']);
     }

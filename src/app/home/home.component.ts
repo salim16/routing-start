@@ -26,7 +26,8 @@ export class HomeComponent implements OnInit {
   // servers component
   onLoadServer(serverId: number) {
     // this.router.navigate(['/servers', 'salim', serverId, 'edit'])
-    this.router.navigate(['/servers', 'salim', serverId, 'edit'], {queryParams: {allowEdit: '1'}, fragment: 'loading'});
+    this.router.navigate(['/servers', 'salim', serverId, 'edit'], 
+                        {queryParams: {allowEdit: '1'}, fragment: 'loading'});
   }
 
   onLogin() {

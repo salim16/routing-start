@@ -1,6 +1,8 @@
 <div class="row">
   <div class="col-xs-12 col-sm-4">
     <div class="list-group">
+      <!-- Fragment directive can also be used as [fragment]="'loading'", as studied in directives
+          section, also fragment adds #loading into our URL's-->
       <a
         [routerLink]="['/servers/salim', server.id]"
         [queryParams]="{allowEdit: server.id === 3 ? '1' : '0'}"
@@ -14,12 +16,15 @@
   </div>
   <div class="col-xs-12 col-sm-4">
     <!-- There are 3 kind of paths, relative paths, absolute paths, and level paths.
-    1) /servers => absolute path, it will always append to the root domain, no matter how long the path is example =>> localhost:4200/servers
-    2) servers or ./servers => relative path, it will append to the exiting parent path =>> localhost:4200/servers/salim/servers
-    3) ../servers => step path, it goes one level back and then appends path =>> localhost:4200/servers/servers -->
+    1) /servers => absolute path, it will always append to the root domain, 
+      no matter how long the path is example =>> localhost:4200/servers
+    2) servers or ./servers => relative path, it will append to the 
+      existing parent path =>> localhost:4200/servers/salim/servers
+    3) ../servers => step path, it goes one level back and 
+        then appends path =>> localhost:4200/servers/servers -->
     <!-- <a routerLink="servers">Reload Page</a> -->
-    <!-- <button class="btn btn-primary" (click)="onReload()">Reload Page</button>
-    <app-edit-server></app-edit-server>
+    <!--<button class="btn btn-primary" (click)="onReload()">Reload Page</button> --> 
+    <!-- <app-edit-server></app-edit-server>
     <hr>
     <app-server></app-server> -->
 

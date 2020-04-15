@@ -25,9 +25,13 @@ export class ServerComponent implements OnInit {
     //     this.server = this.serversService.getServer(id);
     //   }
     // );
+
+    // server-resolver is used, it is giving us the server data
+    // server-resolves run before a component is run
     this.route.data.subscribe(
       (data: Data) => {
         this.server = data['server']; // 'server' is the key in the resolver property.
+        // 'server' is the same key we used in app-routing.module.ts
       }
     )
   }

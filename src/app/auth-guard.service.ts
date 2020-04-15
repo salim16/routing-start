@@ -1,7 +1,9 @@
 import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router, CanActivateChild, UrlTree } from "@angular/router";
 import { Observable } from "rxjs/Observable";
 import { AuthService } from "./auth.service";
+import { Injectable } from "@angular/core";
 
+@Injectable()
 export class AuthGuard implements CanActivate, CanActivateChild {
 
     // multiple return types to handle both asynchronous and synchronous responses

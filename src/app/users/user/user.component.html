@@ -1,4 +1,9 @@
 <p>User with ID {{ user.id }} loaded.</p>
 <p>User name is {{ user.name }}</p>
 
+<p [ngClass]="{'notes': true}">Since we are already on the User Component and since the data 
+    does not change in memory rather in this case it picks the data from the URL, 
+    therefor the component will not be recreated when you click Load Anna, 
+    hence we need observable to listen to asynchronous changes
+</p>
 <a [routerLink]="['/users', '10', 'Anna']">Load Anna (10)</a>
